@@ -1,6 +1,8 @@
 import React from 'react';
+import './Ninjas.css';
 
-const Ninjas = ({ ninjas }) => {
+const Ninjas = ({ ninjas, deleteNinja }) => {
+  
   const ninjaList = ninjas.map((ninja, i) => {
     if (ninja.age > 20) {
       return (
@@ -8,13 +10,16 @@ const Ninjas = ({ ninjas }) => {
           {`Name: ${ninja.name}`}
           <br />
           <br />
-          {`index position is:  ${i.toString()}`}
+          {`Ninja Number:  ${i.toString()}`}
           <br />
           <br />
           {`Age: ${ninja.age}`}
           <br />
           <br />
           {`Belt: ${ninja.belt}`}
+          <br />
+          <br />
+          <button onClick={ () => {deleteNinja(ninja.id)} }>Delete Ninja</button>
           <br />
           <br />
         </li>
@@ -26,6 +31,7 @@ const Ninjas = ({ ninjas }) => {
   return (
     <div className='ninja-list'>
       <ul>{ninjaList}</ul>
+      
     </div>
   );
 };
